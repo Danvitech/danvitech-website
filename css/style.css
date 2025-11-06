@@ -1,3 +1,4 @@
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,32 +6,94 @@ body {
   color: #333;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* Header & Navigation */
 header {
   background: #004aad;
   color: white;
-  padding: 1rem;
+  padding: 1rem 0;
   text-align: center;
 }
 
-nav a {
+header .main-nav {
+  margin-bottom: 1rem;
+}
+
+header .main-nav a {
   color: white;
   margin: 0 1rem;
-  text-decoration: none;
   font-weight: bold;
 }
 
-nav a.active, nav a:hover {
+header .main-nav a.active,
+header .main-nav a:hover {
   text-decoration: underline;
 }
 
+/* Hero section */
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #004aad;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #002d72;
+}
+
+/* Sections */
 section {
   padding: 2rem;
   text-align: center;
 }
 
+.bg-light {
+  background: #e6ebf7;
+}
+
+/* Grid layout */
+.grid-3, .grid-4 {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Card styles */
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Footer */
 footer {
   background: #002d72;
   color: white;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
 }
