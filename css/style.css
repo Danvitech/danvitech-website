@@ -1,40 +1,36 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  color: #222;
+  background: #f5f7fb;
+  color: #333;
 }
 
-.hero {
-  background: linear-gradient(135deg, #0a3d91, #0040c1);
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+header {
+  background: #004aad;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
   font-weight: bold;
 }
 
-.hero p {
-  font-size: 1.2rem;
+nav a.active, nav a:hover {
+  text-decoration: underline;
 }
 
-.service-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  transition: transform 0.3s;
+section {
+  padding: 2rem;
+  text-align: center;
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-}
-
-blockquote {
-  font-style: italic;
-  border-left: 4px solid #0a3d91;
-  padding-left: 15px;
+footer {
+  background: #002d72;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
