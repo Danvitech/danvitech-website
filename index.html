@@ -1,199 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danvitech IT Solutions | Empowering Small Businesses</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danvitech | Smart IT Solutions for Canadian Businesses</title>
+<style>
+/* ===== Variables ===== */
+:root {
+  --color-primary: #1e60ff;
+  --color-accent: #00cfff;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f9f9f9;
+  --color-on-surface: #111111;
+  --color-on-surface-secondary: #555555;
+  --color-border: #e0e0e0;
+  --color-outline: #1e60ff;
+  --font-family-heading: 'Segoe UI', sans-serif;
+  --font-family-body: 'Segoe UI', sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  --animation-duration-fast: 0.2s;
+  --animation-duration-standard: 0.4s;
+  --animation-duration-slow: 0.8s;
+  --animation-curve-primary: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Global Styles ===== */
+body {
+  margin: 0;
+  font-family: var(--font-family-body);
+  color: var(--color-on-surface);
+  background: var(--color-surface);
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-family-heading);
+  margin: 0;
+}
+
+section {
+  padding: var(--spacing-4xl) var(--spacing-lg);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  min-height: 80vh;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  padding: var(--spacing-4xl) var(--spacing-lg);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+}
+
+.hero .cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 6px;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  border: none;
+  transition: all var(--animation-duration-fast) var(--animation-curve-primary);
+}
+
+.button-primary {
+  background-color: #fff;
+  color: var(--color-primary);
+}
+
+.button-primary:hover {
+  transform: scale(1.05);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.button-secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* ===== Services Section ===== */
+.services {
+  background: var(--color-surface-elevated);
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  font-size: 2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.service-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform var(--animation-duration-fast), box-shadow var(--animation-duration-fast);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.service-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: var(--spacing-md);
+}
+
+.service-card h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--color-on-surface-secondary);
+}
+
+/* ===== Why Choose Us ===== */
+.why-choose {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.why-choose img {
+  flex: 1;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+.why-choose-text {
+  flex: 1;
+}
+
+.why-choose-text h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.why-choose-text ul {
+  list-style: disc;
+  padding-left: var(--spacing-xl);
+  color: var(--color-on-surface-secondary);
+}
+
+.why-choose-text ul li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===== Testimonials Section ===== */
+.testimonials {
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.testimonial-card {
+  background: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.testimonial-card p {
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.testimonial-card h4 {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+/* ===== Get In Touch Section ===== */
+.contact-section {
+  background: var(--color-surface-elevated);
+  border-radius: 12px;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.contact-left h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-left p {
+  color: var(--color-on-surface-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-left ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-left ul li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: var(--spacing-sm);
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-family-body);
+}
+
+.contact-form button {
+  padding: var(--spacing-sm);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all var(--animation-duration-fast);
+}
+
+.contact-form button:hover {
+  transform: scale(1.03);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--color-surface);
+  padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-on-surface-secondary);
+}
+
+footer .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2xl);
+}
+
+footer .footer-column {
+  flex: 1 1 200px;
+}
+
+footer .footer-column h4 {
+  color: var(--color-on-surface);
+  margin-bottom: var(--spacing-sm);
+}
+
+footer .footer-links,
+footer .footer-contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-links li,
+footer .footer-contact-list li {
+  margin-bottom: var(--spacing-sm);
+}
+
+footer .footer-links a,
+footer .footer-contact-list a {
+  color: var(--color-on-surface-secondary);
+  transition: color var(--animation-duration-fast);
+}
+
+footer .footer-links a:hover,
+footer .footer-contact-list a:hover {
+  color: var(--color-primary);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+  .why-choose {
+    flex-direction: column;
+  }
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">Danvitech</h1>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="why-choose-us.html">Why Choose Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Banner Section -->
-  <section class="banner">
-    <div class="banner-content">
-      <h2>Empowering Canadian Small Businesses with Smart IT Solutions</h2>
-      <p>Cloud, Network, Migration & IT Support — tailored for your business. Get reliable, cost-effective IT solutions without the hassle.</p>
-      <div class="banner-buttons">
-        <a href="contact.html" class="btn-primary">Get Your Free Consultation</a>
-        <a href="services.html" class="btn-secondary">Explore Our Services</a>
-      </div>
-      <p class="banner-small">No credit card required • Free consultation • Same-day response</p>
-      <div class="banner-services">
-        <div class="service-box">
-          <h3>Cloud & Microsoft 365</h3>
-          <p>Seamless migration and setup</p>
-        </div>
-        <div class="service-box">
-          <h3>Network & Security</h3>
-          <p>24/7 monitoring and protection</p>
-        </div>
-        <div class="service-box">
-          <h3>Data Migration</h3>
-          <p>Secure backup and recovery</p>
-        </div>
-        <div class="service-box">
-          <h3>Ongoing Support</h3>
-          <p>Responsive, reliable assistance</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Hero -->
+<section class="hero">
+  <h1>Empowering Canadian Small Businesses with Smart IT Solutions</h1>
+  <p>Cloud, Network, Migration & IT Support — tailored for your business.</p>
+  <div class="cta-buttons">
+    <button class="button button-primary">Get Your Free Consultation</button>
+    <button class="button button-secondary">Explore Our Services</button>
+  </div>
+</section>
 
-  <!-- Tailored IT Solutions -->
-  <section class="services-overview">
-    <div class="container">
-      <h2>Tailored IT Solutions for Small Businesses</h2>
-      <p>We help Canadian small businesses thrive with reliable, cost-effective technology solutions that just work.</p>
-      <div class="service-grid">
-        <div class="service-card">
-          <h3>Cloud & Microsoft 365</h3>
-          <p>Simplify your operations with seamless cloud migration and Microsoft 365 setup. We handle everything from email to file storage, so you can focus on growing your business.</p>
-          <a href="services.html" class="btn-secondary">Learn More</a>
-        </div>
-        <div class="service-card">
-          <h3>Network & Security Infrastructure</h3>
-          <p>Protect your business with robust network security and 24/7 monitoring. We ensure your systems are secure, fast, and always running smoothly.</p>
-          <a href="services.html" class="btn-secondary">Learn More</a>
-        </div>
-        <div class="service-card">
-          <h3>Data Migration & Backup</h3>
-          <p>Move your data safely and set up automated backups that give you peace of mind. Your information stays secure and recoverable—always.</p>
-          <a href="services.html" class="btn-secondary">Learn More</a>
-        </div>
-        <div class="service-card">
-          <h3>Ongoing IT Support</h3>
-          <p>Get the help you need, when you need it. Our responsive support team is ready to solve your IT challenges quickly and effectively.</p>
-          <a href="services.html" class="btn-secondary">Learn More</a>
-        </div>
-      </div>
+<!-- Services -->
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <img src="https://via.placeholder.com/60" alt="Managed IT">
+      <h3>Managed IT Services</h3>
+      <p>Comprehensive IT management for your business infrastructure.</p>
     </div>
-  </section>
-
-  <!-- Why Trust Us -->
-  <section class="trust-us">
-    <div class="container">
-      <h2>Why Canadian Small Businesses Trust Us</h2>
-      <p>We understand the unique challenges small businesses face. That's why we deliver IT solutions that are practical, reliable, and designed to help you grow.</p>
-      <div class="trust-grid">
-        <div class="trust-card">
-          <h3>Tailored Solutions</h3>
-          <p>Every business is unique. We customize our services to fit your specific needs and budget.</p>
-        </div>
-        <div class="trust-card">
-          <h3>Quick & Reliable Support</h3>
-          <p>When issues arise, we respond fast. No waiting days for help.</p>
-        </div>
-        <div class="trust-card">
-          <h3>Cost-Effective Approach</h3>
-          <p>Enterprise-level IT without enterprise prices.</p>
-        </div>
-        <div class="trust-card">
-          <h3>Canadian-Based Support</h3>
-          <p>Work with a local team that understands Canadian business needs.</p>
-        </div>
-      </div>
-      <a href="why-choose-us.html" class="btn-secondary">Learn More About Us</a>
+    <div class="service-card">
+      <img src="https://via.placeholder.com/60" alt="Cloud Solutions">
+      <h3>Cloud Solutions</h3>
+      <p>Secure and scalable cloud platforms for modern business needs.</p>
     </div>
-  </section>
-
-  <!-- How We Work -->
-  <section class="process">
-    <div class="container">
-      <h2>How We Work With You</h2>
-      <p>Getting started with Danvitech is simple. Here's how we help transform your IT infrastructure in four easy steps.</p>
-      <div class="steps-line">
-        <div class="step">
-          <span class="number">1</span>
-          <h4>Free Consultation</h4>
-          <p>We start with a no-obligation consultation to understand your business needs, challenges, and goals.</p>
-        </div>
-        <div class="step">
-          <span class="number">2</span>
-          <h4>Tailored Plan</h4>
-          <p>We create a customized IT roadmap with clear timelines and transparent pricing.</p>
-        </div>
-        <div class="step">
-          <span class="number">3</span>
-          <h4>Implementation</h4>
-          <p>Our expert team implements your IT solutions with minimal disruption.</p>
-        </div>
-        <div class="step">
-          <span class="number">4</span>
-          <h4>Ongoing Support</h4>
-          <p>Continuous monitoring, maintenance, and support whenever you need it.</p>
-        </div>
-      </div>
+    <div class="service-card">
+      <img src="https://via.placeholder.com/60" alt="Cybersecurity">
+      <h3>Cybersecurity</h3>
+      <p>Protect your business from threats with advanced security solutions.</p>
     </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <div class="container">
-      <h2>Ready to Transform Your IT?</h2>
-      <p>Schedule your free consultation today and discover how we can help your business thrive with smart IT solutions.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn-primary">Schedule Free Consultation</a>
-        <a href="services.html" class="btn-secondary">View Our Services</a>
-      </div>
+    <div class="service-card">
+      <img src="https://via.placeholder.com/60" alt="Network Setup">
+      <h3>Network Setup</h3>
+      <p>Optimized networking solutions for seamless operations.</p>
     </div>
-  </section>
+    <div class="service-card">
+      <img src="https://via.placeholder.com/60" alt="Data Backup">
+      <h3>Data Backup & Recovery</h3>
+      <p>Reliable backup solutions to keep your data safe.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://via.placeholder.com/60" alt="IT Consulting">
+      <h3>IT Consulting</h3>
+      <p>Expert guidance to improve your IT strategy and efficiency.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Partner / Info Section -->
-  <section class="partner">
-    <div class="container">
-      <h2>Partner with Danvitech Today</h2>
-      <p>Join hundreds of Canadian small businesses that trust us with their IT infrastructure.</p>
-      <ul>
-        <li>Same-day response to urgent issues</li>
-        <li>Transparent pricing with no hidden fees</li>
-        <li>Canadian-based support team</li>
-        <li>Proven track record with small businesses</li>
+<!-- Why Choose Us -->
+<section class="why-choose">
+  <img src="https://via.placeholder.com/500x350" alt="IT Support Illustration">
+  <div class="why-choose-text">
+    <h2>Why Choose Danvitech?</h2>
+    <ul>
+      <li>Certified IT experts with years of experience</li>
+      <li>Cost-effective solutions tailored for small businesses</li>
+      <li>24/7 reliable support</li>
+      <li>Trusted by Canadian businesses</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial-card">
+      <p>"Danvitech helped us migrate to cloud seamlessly. Highly recommended!"</p>
+      <h4>Jane D., Toronto</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Professional, responsive, and affordable IT services."</p>
+      <h4>Mark S., Ottawa</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Our network and cybersecurity are finally worry-free thanks to Danvitech."</p>
+      <h4>Lisa W., Vancouver</h4>
+    </div>
+  </div>
+</section>
+
+<!-- Get In Touch -->
+<section class="contact-section" id="contact">
+  <div class="contact-left">
+    <h2>Get In Touch</h2>
+    <p>Reach out today to discuss your IT needs and how we can help your business grow.</p>
+    <ul>
+      <li>Phone: 1-800-555-1234</li>
+      <li>Email: info@danvitech.com</li>
+      <li>Location: Toronto, ON, Canada</li>
+    </ul>
+  </div>
+  <form class="contact-form">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Subject" required>
+    <textarea placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h4>Danvitech</h4>
+      <p>Empowering Canadian small businesses with reliable, professional IT services.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Managed IT Services</a></li>
+        <li><a href="#services">Cloud Solutions</a></li>
+        <li><a href="#services">Cybersecurity</a></li>
+        <li><a href="#services">Network Setup</a></li>
+        <li><a href="#services">Data Backup & Recovery</a></li>
+        <li><a href="#services">IT Consulting</a></li>
       </ul>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn-primary">Get Your Free Consultation</a>
-        <a href="services.html" class="btn-secondary">View Our Services</a>
-        <a href="contact.html" class="btn-secondary">Get in Touch</a>
-      </div>
-      <p>Email Us: <a href="mailto:support@danvitech.com">support@danvitech.com</a></p>
     </div>
-  </section>
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <ul class="footer-contact-list">
+        <li><a href="tel:+18005551234">1-800-555-1234</a></li>
+        <li><a href="mailto:info@danvitech.com">info@danvitech.com</a></li>
+        <li>Toronto, ON, Canada</li>
+      </ul>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top: var(--spacing-md); font-size:0.85rem;">&copy; <span id="year"></span> Danvitech. All rights reserved.</p>
+</footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div>
-        <h3>Danvitech IT Solutions</h3>
-        <p>Empowering Canadian small businesses with smart IT solutions.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a><br>
-        <a href="services.html">Services</a><br>
-        <a href="why-choose-us.html">Why Choose Us</a><br>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>Email: <a href="mailto:support@danvitech.com">support@danvitech.com</a></p>
-        <p>Mon-Fri: 8AM - 6PM EST</p>
-      </div>
-    </div>
-    <div class="footer-bottom">© 2025 Danvitech IT Solutions. All rights reserved.</div>
-  </footer>
+<script>
+// Dynamic year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Simple fade-in effect for services and sections
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.service-card, .why-choose, .testimonial-card, .contact-section').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'all 0.6s ease-out';
+  observer.observe(el);
+});
+</script>
 
 </body>
 </html>
