@@ -3,42 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Danvitech | Smart IT Solutions for Canadian Businesses</title>
+<title>Danvitech - Empowering Canadian Small Businesses</title>
 <style>
-/* ===== Variables ===== */
+/* ---------- VARIABLES ---------- */
 :root {
-  --color-primary: #1e60ff;
-  --color-accent: #00cfff;
+  --color-primary: #0d6efd;
+  --color-accent: #6610f2;
   --color-surface: #ffffff;
-  --color-surface-elevated: #f9f9f9;
-  --color-on-surface: #111111;
-  --color-on-surface-secondary: #555555;
-  --color-border: #e0e0e0;
-  --color-outline: #1e60ff;
-  --font-family-heading: 'Segoe UI', sans-serif;
-  --font-family-body: 'Segoe UI', sans-serif;
+  --color-surface-elevated: #f8f9fa;
+  --color-on-surface: #212529;
+  --color-on-surface-secondary: #6c757d;
+  --color-border: #dee2e6;
+  --color-outline: #0d6efd;
+
+  --font-family-heading: 'Arial', sans-serif;
+  --font-family-body: 'Verdana', sans-serif;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-h3: 24px;
+  --font-size-h4: 20px;
+  --font-size-h5: 18px;
+  --line-height-base: 1.5;
+  --line-height-h2: 1.3;
   --font-weight-bold: 700;
   --font-weight-medium: 500;
+
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-2xl: 48px;
   --spacing-3xl: 64px;
-  --spacing-4xl: 96px;
+  --spacing-4xl: 80px;
+
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-full: 9999px;
+
+  --shadow-level-1: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-level-2: 0 4px 6px rgba(0,0,0,0.1);
+
   --animation-duration-fast: 0.2s;
   --animation-duration-standard: 0.4s;
-  --animation-duration-slow: 0.8s;
+  --animation-duration-slow: 0.6s;
   --animation-curve-primary: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== Global Styles ===== */
+/* ---------- BASIC RESET ---------- */
 body {
   margin: 0;
   font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   color: var(--color-on-surface);
   background: var(--color-surface);
-  scroll-behavior: smooth;
 }
 
 a {
@@ -46,100 +66,69 @@ a {
   color: var(--color-primary);
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: var(--font-family-heading);
-  margin: 0;
-}
-
-section {
-  padding: var(--spacing-4xl) var(--spacing-lg);
-}
-
-/* ===== Hero Section ===== */
+/* ---------- HERO SECTION ---------- */
 .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: var(--spacing-md);
-  min-height: 80vh;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: #fff;
-  padding: var(--spacing-4xl) var(--spacing-lg);
+  text-align: center;
+  padding: var(--spacing-4xl) var(--spacing-md);
 }
 
 .hero h1 {
-  font-size: 3rem;
-  line-height: 1.2;
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .hero p {
   font-size: 1.25rem;
-  max-width: 600px;
+  margin-bottom: var(--spacing-lg);
 }
 
-.hero .cta-buttons {
-  display: flex;
-  gap: var(--spacing-md);
-}
-
-.button {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 6px;
-  font-weight: var(--font-weight-bold);
-  cursor: pointer;
-  border: none;
-  transition: all var(--animation-duration-fast) var(--animation-curve-primary);
-}
-
-.button-primary {
-  background-color: #fff;
+.hero .hero-buttons a {
+  display: inline-block;
+  margin: 0 var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: #fff;
   color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--border-radius-md);
+  transition: transform 0.2s;
 }
 
-.button-primary:hover {
+.hero .hero-buttons a:hover {
   transform: scale(1.05);
 }
 
-.button-secondary {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
-.button-secondary:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-
-/* ===== Services Section ===== */
+/* ---------- SERVICES SECTION ---------- */
 .services {
-  background: var(--color-surface-elevated);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-4xl) var(--spacing-md);
 }
 
 .services h2 {
   text-align: center;
   margin-bottom: var(--spacing-3xl);
-  font-size: 2rem;
+  font-size: var(--font-size-h3);
 }
 
-.service-grid {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-xl);
+  gap: var(--spacing-2xl);
 }
 
 .service-card {
-  background: var(--color-surface);
-  border-radius: 12px;
+  background: var(--color-surface-elevated);
+  border-radius: var(--border-radius-md);
   padding: var(--spacing-lg);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-level-1);
   text-align: center;
-  transition: transform var(--animation-duration-fast), box-shadow var(--animation-duration-fast);
+  transition: transform 0.3s;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .service-card img {
@@ -149,355 +138,158 @@ section {
 }
 
 .service-card h3 {
+  font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-sm);
 }
 
 .service-card p {
-  font-size: 0.95rem;
   color: var(--color-on-surface-secondary);
+  font-size: var(--font-size-base);
 }
 
-/* ===== Why Choose Us ===== */
-.why-choose {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-2xl);
-  align-items: center;
+/* ---------- CONTACT SECTION ---------- */
+.contact-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-4xl) var(--spacing-md);
 }
 
-.why-choose img {
-  flex: 1;
-  max-width: 500px;
-  border-radius: 12px;
-}
-
-.why-choose-text {
-  flex: 1;
-}
-
-.why-choose-text h2 {
-  font-size: 2rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.why-choose-text ul {
-  list-style: disc;
-  padding-left: var(--spacing-xl);
-  color: var(--color-on-surface-secondary);
-}
-
-.why-choose-text ul li {
-  margin-bottom: var(--spacing-sm);
-}
-
-/* ===== Testimonials Section ===== */
-.testimonials {
+.contact-section h2 {
   text-align: center;
-}
-
-.testimonials h2 {
-  font-size: 2rem;
+  font-size: var(--font-size-h3);
   margin-bottom: var(--spacing-3xl);
 }
 
-.testimonial-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-xl);
-}
-
-.testimonial-card {
-  background: var(--color-surface);
-  padding: var(--spacing-md);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.testimonial-card p {
-  font-size: 0.95rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.testimonial-card h4 {
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-}
-
-/* ===== Get In Touch Section ===== */
-.contact-section {
-  background: var(--color-surface-elevated);
-  border-radius: 12px;
-  padding: var(--spacing-3xl) var(--spacing-lg);
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-2xl);
-}
-
-.contact-left h2 {
-  margin-bottom: var(--spacing-md);
-}
-
-.contact-left p {
-  color: var(--color-on-surface-secondary);
-  margin-bottom: var(--spacing-lg);
-}
-
-.contact-left ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-left ul li {
-  margin-bottom: var(--spacing-sm);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: var(--spacing-sm);
-  border-radius: 6px;
-  border: 1px solid var(--color-border);
-  font-family: var(--font-family-body);
-}
-
-.contact-form button {
-  padding: var(--spacing-sm);
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-weight: var(--font-weight-bold);
-  cursor: pointer;
-  transition: all var(--animation-duration-fast);
-}
-
-.contact-form button:hover {
-  transform: scale(1.03);
-}
-
-/* ===== Footer ===== */
-footer {
-  background: var(--color-surface);
-  padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-xl);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-on-surface-secondary);
-}
-
-footer .footer-content {
+.contact-container {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-2xl);
+  justify-content: center;
 }
 
-footer .footer-column {
-  flex: 1 1 200px;
+.contact-card {
+  background: var(--color-surface-elevated);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  max-width: 400px;
+  flex: 1;
+  text-align: center;
 }
 
-footer .footer-column h4 {
-  color: var(--color-on-surface);
-  margin-bottom: var(--spacing-sm);
+.contact-card h3 {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
 }
 
-footer .footer-links,
-footer .footer-contact-list {
-  list-style: none;
-  padding: 0;
+.contact-card a {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
 }
 
-footer .footer-links li,
-footer .footer-contact-list li {
-  margin-bottom: var(--spacing-sm);
+/* ---------- FOOTER ---------- */
+footer {
+  background: var(--color-surface-elevated);
+  padding: var(--spacing-4xl) var(--spacing-md);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
 }
 
-footer .footer-links a,
-footer .footer-contact-list a {
+footer p {
   color: var(--color-on-surface-secondary);
-  transition: color var(--animation-duration-fast);
+  font-size: var(--font-size-sm);
+  margin: var(--spacing-sm) 0;
 }
 
-footer .footer-links a:hover,
-footer .footer-contact-list a:hover {
+footer a {
   color: var(--color-primary);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 991px) {
-  .why-choose {
-    flex-direction: column;
-  }
-  .contact-section {
+/* ---------- MEDIA QUERIES ---------- */
+@media(max-width: 767px) {
+  .services-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 479px) {
-  .hero h1 {
-    font-size: 2rem;
+  .contact-container {
+    flex-direction: column;
+    gap: var(--spacing-lg);
   }
 }
 </style>
 </head>
 <body>
 
-<!-- Hero -->
+<!-- HERO SECTION -->
 <section class="hero">
-  <h1>Empowering Canadian Small Businesses with Smart IT Solutions</h1>
-  <p>Cloud, Network, Migration & IT Support — tailored for your business.</p>
-  <div class="cta-buttons">
-    <button class="button button-primary">Get Your Free Consultation</button>
-    <button class="button button-secondary">Explore Our Services</button>
+  <h1>Danvitech</h1>
+  <p>Empowering Canadian Small Businesses with Smart IT Solutions</p>
+  <div class="hero-buttons">
+    <a href="#services">Our Services</a>
+    <a href="#contact">Get in Touch</a>
   </div>
 </section>
 
-<!-- Services -->
+<!-- SERVICES -->
 <section class="services" id="services">
   <h2>Our Services</h2>
-  <div class="service-grid">
+  <div class="services-grid">
     <div class="service-card">
-      <img src="https://via.placeholder.com/60" alt="Managed IT">
+      <img src="https://via.placeholder.com/60" alt="Managed IT Services">
       <h3>Managed IT Services</h3>
-      <p>Comprehensive IT management for your business infrastructure.</p>
+      <p>Professional IT support tailored for small businesses.</p>
     </div>
     <div class="service-card">
       <img src="https://via.placeholder.com/60" alt="Cloud Solutions">
       <h3>Cloud Solutions</h3>
-      <p>Secure and scalable cloud platforms for modern business needs.</p>
+      <p>Reliable cloud migration and management for your business.</p>
     </div>
     <div class="service-card">
       <img src="https://via.placeholder.com/60" alt="Cybersecurity">
       <h3>Cybersecurity</h3>
-      <p>Protect your business from threats with advanced security solutions.</p>
+      <p>Protect your business data with advanced security solutions.</p>
     </div>
     <div class="service-card">
       <img src="https://via.placeholder.com/60" alt="Network Setup">
       <h3>Network Setup</h3>
-      <p>Optimized networking solutions for seamless operations.</p>
+      <p>Efficient and secure networking solutions for offices.</p>
     </div>
     <div class="service-card">
-      <img src="https://via.placeholder.com/60" alt="Data Backup">
+      <img src="https://via.placeholder.com/60" alt="Data Backup & Recovery">
       <h3>Data Backup & Recovery</h3>
-      <p>Reliable backup solutions to keep your data safe.</p>
+      <p>Safeguard your important business data from loss.</p>
     </div>
     <div class="service-card">
       <img src="https://via.placeholder.com/60" alt="IT Consulting">
       <h3>IT Consulting</h3>
-      <p>Expert guidance to improve your IT strategy and efficiency.</p>
+      <p>Expert advice to optimize your IT infrastructure and strategy.</p>
     </div>
   </div>
 </section>
 
-<!-- Why Choose Us -->
-<section class="why-choose">
-  <img src="https://via.placeholder.com/500x350" alt="IT Support Illustration">
-  <div class="why-choose-text">
-    <h2>Why Choose Danvitech?</h2>
-    <ul>
-      <li>Certified IT experts with years of experience</li>
-      <li>Cost-effective solutions tailored for small businesses</li>
-      <li>24/7 reliable support</li>
-      <li>Trusted by Canadian businesses</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="testimonials">
-  <h2>What Our Clients Say</h2>
-  <div class="testimonial-cards">
-    <div class="testimonial-card">
-      <p>"Danvitech helped us migrate to cloud seamlessly. Highly recommended!"</p>
-      <h4>Jane D., Toronto</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"Professional, responsive, and affordable IT services."</p>
-      <h4>Mark S., Ottawa</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"Our network and cybersecurity are finally worry-free thanks to Danvitech."</p>
-      <h4>Lisa W., Vancouver</h4>
-    </div>
-  </div>
-</section>
-
-<!-- Get In Touch -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="contact-left">
-    <h2>Get In Touch</h2>
-    <p>Reach out today to discuss your IT needs and how we can help your business grow.</p>
-    <ul>
-      <li>Phone: 1-800-555-1234</li>
-      <li>Email: info@danvitech.com</li>
-      <li>Location: Toronto, ON, Canada</li>
-    </ul>
+  <h2>Get In Touch</h2>
+  <div class="contact-container">
+    <div class="contact-card">
+      <h3>Email Us</h3>
+      <p>We’re here to help. Send us a message anytime!</p>
+      <a href="mailto:support@danvitech.com">support@danvitech.com</a>
+    </div>
   </div>
-  <form class="contact-form">
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="text" placeholder="Subject" required>
-    <textarea placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-content">
-    <div class="footer-column">
-      <h4>Danvitech</h4>
-      <p>Empowering Canadian small businesses with reliable, professional IT services.</p>
-    </div>
-    <div class="footer-column">
-      <h4>Services</h4>
-      <ul class="footer-links">
-        <li><a href="#services">Managed IT Services</a></li>
-        <li><a href="#services">Cloud Solutions</a></li>
-        <li><a href="#services">Cybersecurity</a></li>
-        <li><a href="#services">Network Setup</a></li>
-        <li><a href="#services">Data Backup & Recovery</a></li>
-        <li><a href="#services">IT Consulting</a></li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h4>Contact</h4>
-      <ul class="footer-contact-list">
-        <li><a href="tel:+18005551234">1-800-555-1234</a></li>
-        <li><a href="mailto:info@danvitech.com">info@danvitech.com</a></li>
-        <li>Toronto, ON, Canada</li>
-      </ul>
-    </div>
-  </div>
-  <p style="text-align:center; margin-top: var(--spacing-md); font-size:0.85rem;">&copy; <span id="year"></span> Danvitech. All rights reserved.</p>
+  <p>&copy; <span id="year"></span> Danvitech. All rights reserved.</p>
+  <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
 </footer>
 
 <script>
-// Dynamic year
+// Update footer year dynamically
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// Simple fade-in effect for services and sections
-const observerOptions = { threshold: 0.1 };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.service-card, .why-choose, .testimonial-card, .contact-section').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'all 0.6s ease-out';
-  observer.observe(el);
-});
 </script>
 
 </body>
